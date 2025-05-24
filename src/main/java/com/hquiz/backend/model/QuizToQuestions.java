@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "quiz_to_ques")
 @Getter
 @Setter
 public class QuizToQuestions {
