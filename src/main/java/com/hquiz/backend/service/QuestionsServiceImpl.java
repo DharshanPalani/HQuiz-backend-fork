@@ -1,5 +1,6 @@
 package com.hquiz.backend.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hquiz.backend.model.Questions;
@@ -8,7 +9,7 @@ import com.hquiz.backend.repository.QuestionsRepository;
 @Service
 // This handles the storing the question to the database implimentation
 public class QuestionsServiceImpl implements QuestionsService {
-
+    @Autowired
     private QuestionsRepository questionsRepository;
 
     @Override
