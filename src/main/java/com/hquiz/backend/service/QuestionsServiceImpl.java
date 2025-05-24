@@ -1,5 +1,9 @@
 package com.hquiz.backend.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +25,15 @@ public class QuestionsServiceImpl implements QuestionsService {
             throw new RuntimeException(error);
         }
     }
+
+    @Override
+    public Questions getQuestions(Long ques_id) {
+        Optional<Questions> q =  questionsRepository.findById(ques_id);
+        if(q.isPresent())
+            return q.get();
+        return null;
+    }
+
+    
     
 }
