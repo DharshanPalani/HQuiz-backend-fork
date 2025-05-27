@@ -48,4 +48,12 @@ public class UsersServiceImpl implements UsersService{
     public List<Users> getUsers(){
         return usersRepository.findAll();
     }
+
+    @Override
+    public Long getIdFromUserName(String username) {
+        
+        Optional<Users> expectedUser = usersRepository.findByUsername(username);
+        if(expectedUser.isPresent()) return expectedUser.get().getId();
+        return -1L;
+    }
 }
