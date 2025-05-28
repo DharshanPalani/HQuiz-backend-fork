@@ -1,4 +1,6 @@
 package com.hquiz.backend.service;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ public class QuestionsServiceImpl implements QuestionsService {
     public String createQuestion(Questions question) {
         try {
             Questions saveQuestion = questionsRepository.save(question);
-            return "Added Question" + saveQuestion.getId();
+            return  saveQuestion.getId().toString();
         } catch(Exception error) {
             throw new RuntimeException(error);
         }
@@ -29,6 +31,19 @@ public class QuestionsServiceImpl implements QuestionsService {
         if(q.isPresent())
             return q.get();
         return null;
+    }
+
+    @Override
+    public String createQuestions(List<Questions> questions) {
+        List<String> list = new ArrayList<>();
+        try{
+        for(Questions q : questions){
+           list.add(createQuestion(q));
+        }}
+        catch(Exception e){
+            return e.getMessage();
+        }
+        return list.toString();
     }
 
     

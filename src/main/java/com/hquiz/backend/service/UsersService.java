@@ -8,4 +8,5 @@ public interface UsersService {
     String createUser(Users user);
     String loginUser (Users user);
     List<Users> getUsers();
+    Long getIdFromUserName(String username);
 }

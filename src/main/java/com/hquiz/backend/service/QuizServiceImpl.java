@@ -21,7 +21,7 @@ public class QuizServiceImpl implements QuizService{
             return "Error:Cannot Create quiz";
         }
         Quiz savedQuiz = quizRepository.save(quiz);
-        return "Quiz created with id:"+savedQuiz.getQuiz_id();
+        return savedQuiz.getQuiz_id().toString();
     }
 
     @Override
